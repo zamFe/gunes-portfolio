@@ -4,25 +4,13 @@ var videoWrapper = document.getElementById("videoWrapper");
 
 var paused = false;
 
-var req = new XMLHttpRequest();
-req.open('GET', 'media/video.mp4', true);
-req.responseType = 'blob';
-
-req.onload = function() {
-    if (this.status === 200) {
-        var videoBlob = this.response;
-        var vid = URL.createObjectURL(videoBlob); // IE10+
-        // Video is now downloaded
-        // and we can set it as source on the video element
-        videoPlayer.src = vid;
-     }
+videoPlayer.oncanplaythrough = function() {
+    console.log("ready!");
+    playVideoButton.innerHTML = "Trykk her";
+    playVideoButton.onclick = function() {
+        showVideoPlayer();
+    }
 }
-
-req.onerror = function() {
-    console.error("could not load video!");
- }
-
-req.send();
 
 function showVideoPlayer() {
     playVideoButton.style.opacity = 0;
