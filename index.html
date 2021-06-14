@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="no">
+    <head>
+        <meta charset="UTF-8">
+        <title>Portfolio</title>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <main>
+            <div id="imageContainer">
+            </div>
+            <div id=videoWrapper>
+                <button id="startBTN" onclick="showVideoPlayer();">Trykk her</button>
+                <video id="videoplayer" onended="hideVideoPlayer();" onpause="onVideoPaused();" onplay="onVideoPlayed();" onclick="toggleVideoPlayer();">
+                    <source src="media/placeholder.mp4" type="video/mp4">
+                </video>
+            </div>
+        </main>
+        <script type="text/javascript" src="index.js"></script>
+    </body>
+</html>
